@@ -1,5 +1,5 @@
 {
-  "numStartups": 54,
+  "numStartups": 58,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -14,7 +14,7 @@
   },
   "tipsHistory": {
     "new-user-warmup": 9,
-    "plan-mode-for-complex-tasks": 50,
+    "plan-mode-for-complex-tasks": 55,
     "memory-command": 53,
     "theme-command": 42,
     "powershell-tool-env": 54,
@@ -22,26 +22,27 @@
     "color-when-multi-clauding": 2,
     "prompt-queue": 7,
     "enter-to-steer-in-relatime": 43,
-    "shift-enter": 45,
+    "shift-enter": 55,
     "todo-list": 45,
-    "drag-and-drop-images": 48,
-    "double-esc-code-restore": 48,
-    "continue": 48,
+    "drag-and-drop-images": 58,
+    "double-esc-code-restore": 58,
+    "continue": 58,
     "shift-tab": 50,
     "image-paste": 46,
-    "subagent-fanout-nudge": 54,
+    "subagent-fanout-nudge": 57,
     "custom-agents": 6,
-    "loop-command-nudge": 54,
+    "loop-command-nudge": 57,
     "permissions": 51,
     "rename-conversation": 44,
     "vscode-gpu-accel-garbled-glyphs": 54,
-    "dynamic-workflows": 54,
+    "dynamic-workflows": 57,
     "workflow-size-prompting-ambient": 50,
-    "auto-copy-config-hint": 45,
+    "auto-copy-config-hint": 55,
     "custom-commands": 54,
-    "git-worktrees": 51
+    "git-worktrees": 51,
+    "focus-view": 56
   },
-  "promptQueueUseCount": 11,
+  "promptQueueUseCount": 13,
   "cachedGrowthBookFeatures": {
     "tengu_crystal_beam": {
       "budgetTokens": 0
@@ -835,7 +836,7 @@
   "seenNotifications": {},
   "migrationVersion": 14,
   "userID": "3bc96f63fb94c08ac76a4db6537f1faa3733d03d6528206b396c66469bab2737",
-  "changelogLastFetched": 1789130567242,
+  "changelogLastFetched": 1789842230144,
   "autoUpdatesProtectedForNative": true,
   "shiftEnterKeyBindingInstalled": true,
   "hasCompletedOnboarding": true,
@@ -982,33 +983,23 @@
       "hasClaudeMdExternalIncludesApproved": false,
       "hasClaudeMdExternalIncludesWarningShown": false,
       "lastGracefulShutdown": false,
-      "lastVersionBase": "2.1.268",
-      "lastCost": 0.7473825,
-      "lastAPIDuration": 23713,
-      "lastAPIDurationWithoutRetries": 23632,
+      "lastVersionBase": "2.1.278",
+      "lastCost": 0,
+      "lastAPIDuration": 0,
+      "lastAPIDurationWithoutRetries": 0,
       "lastToolDuration": 0,
-      "lastDuration": 64390,
+      "lastDuration": 188852,
       "lastLinesAdded": 0,
       "lastLinesRemoved": 0,
-      "lastTotalInputTokens": 134249,
-      "lastTotalOutputTokens": 412,
+      "lastTotalInputTokens": 0,
+      "lastTotalOutputTokens": 0,
       "lastTotalCacheCreationInputTokens": 0,
-      "lastTotalCacheReadInputTokens": 131675,
+      "lastTotalCacheReadInputTokens": 0,
       "lastTotalWebSearchRequests": 0,
-      "lastFpsAverage": 5.27,
-      "lastFpsLow1Pct": 296.74,
-      "lastModelUsage": {
-        "my-combo": {
-          "inputTokens": 134249,
-          "outputTokens": 412,
-          "thinkingTokens": 0,
-          "cacheReadInputTokens": 131675,
-          "cacheCreationInputTokens": 0,
-          "webSearchRequests": 0,
-          "costUSD": 0.7473825
-        }
-      },
-      "lastSessionId": "9c83714e-552a-481c-b94e-ab2cf344fc89",
+      "lastFpsAverage": 7.04,
+      "lastFpsLow1Pct": 92.39,
+      "lastModelUsage": {},
+      "lastSessionId": "25f54b4c-5cc6-4d60-a372-b1dab137fee5",
       "lastSessionMetrics": {
         "frame_duration_ms_count": 120,
         "frame_duration_ms_min": 0.4023000000161119,
@@ -1018,7 +1009,7 @@
         "frame_duration_ms_p95": 20.918029999978987,
         "frame_duration_ms_p99": 66.83593999999981
       },
-      "lastStartTime": 1789150815912
+      "lastStartTime": 1789841772592
     },
     "C:/Users/devr8/OneDrive/Desktop/New folder": {
       "allowedTools": [],
@@ -1165,8 +1156,8 @@
     }
   },
   "cachedExperimentFeatures": [],
-  "lastReleaseNotesSeen": "2.1.268",
-  "closedIssuesLastChecked": 1789130562595,
+  "lastReleaseNotesSeen": "2.1.274",
+  "closedIssuesLastChecked": 1789841776228,
   "officialMarketplaceAutoInstallAttempted": true,
   "officialMarketplaceAutoInstalled": true,
   "hasIdeOnboardingBeenShown": {
@@ -1186,34 +1177,42 @@
   "cachedGrowthBookFeaturesAt": 1787200388250,
   "tipLifetimeShownCounts": {
     "vscode-gpu-accel-garbled-glyphs": 4,
-    "dynamic-workflows": 5,
-    "shift-enter": 3,
-    "drag-and-drop-images": 3,
+    "dynamic-workflows": 6,
+    "shift-enter": 4,
+    "drag-and-drop-images": 4,
     "memory-command": 3,
     "workflow-size-prompting-ambient": 3,
-    "auto-copy-config-hint": 3,
+    "auto-copy-config-hint": 4,
     "theme-command": 2,
     "enter-to-steer-in-relatime": 2,
-    "double-esc-code-restore": 3,
+    "double-esc-code-restore": 4,
     "todo-list": 2,
-    "continue": 3,
+    "continue": 4,
     "shift-tab": 3,
     "image-paste": 2,
     "status-line": 2,
     "permissions": 3,
-    "plan-mode-for-complex-tasks": 4,
+    "plan-mode-for-complex-tasks": 5,
     "powershell-tool-env": 3,
     "rename-conversation": 2,
-    "subagent-fanout-nudge": 4,
-    "loop-command-nudge": 4,
+    "subagent-fanout-nudge": 5,
+    "loop-command-nudge": 5,
     "custom-commands": 2,
-    "git-worktrees": 1
+    "git-worktrees": 1,
+    "focus-view": 1
   },
   "hasOpenedAgentsView": true,
   "agentLastUsed": {
     "bg": 1783770361895
   },
   "cachedExperimentData": {},
-  "lastClawdEntranceVersion": "2.1.268",
-  "hasResetAutoModeOptInForDefaultOffer": true
+  "lastClawdEntranceVersion": "2.1.274",
+  "hasResetAutoModeOptInForDefaultOffer": true,
+  "skillUsage": {
+    "init": {
+      "usageCount": 1,
+      "lastUsedAt": 1789629262566
+    }
+  },
+  "lastPlanModeUse": 1789844787472
 }
