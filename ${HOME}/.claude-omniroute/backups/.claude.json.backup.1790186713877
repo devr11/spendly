@@ -1,5 +1,5 @@
 {
-  "numStartups": 62,
+  "numStartups": 63,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -21,7 +21,7 @@
     "status-line": 52,
     "color-when-multi-clauding": 2,
     "prompt-queue": 7,
-    "enter-to-steer-in-relatime": 43,
+    "enter-to-steer-in-relatime": 63,
     "shift-enter": 55,
     "todo-list": 45,
     "drag-and-drop-images": 58,
@@ -34,9 +34,9 @@
     "loop-command-nudge": 60,
     "permissions": 61,
     "rename-conversation": 59,
-    "vscode-gpu-accel-garbled-glyphs": 54,
+    "vscode-gpu-accel-garbled-glyphs": 62,
     "dynamic-workflows": 60,
-    "workflow-size-prompting-ambient": 50,
+    "workflow-size-prompting-ambient": 62,
     "auto-copy-config-hint": 55,
     "custom-commands": 54,
     "git-worktrees": 61,
@@ -985,20 +985,30 @@
       "hasClaudeMdExternalIncludesWarningShown": false,
       "lastGracefulShutdown": false,
       "lastVersionBase": "2.1.278",
-      "lastCost": 0,
-      "lastAPIDuration": 0,
-      "lastAPIDurationWithoutRetries": 0,
-      "lastToolDuration": 0,
-      "lastDuration": 19200,
-      "lastLinesAdded": 0,
-      "lastLinesRemoved": 0,
-      "lastTotalInputTokens": 0,
-      "lastTotalOutputTokens": 0,
+      "lastCost": 6.646314999999999,
+      "lastAPIDuration": 272200,
+      "lastAPIDurationWithoutRetries": 271753,
+      "lastToolDuration": 23984,
+      "lastDuration": 14058728,
+      "lastLinesAdded": 358,
+      "lastLinesRemoved": 5,
+      "lastTotalInputTokens": 1321438,
+      "lastTotalOutputTokens": 1565,
       "lastTotalCacheCreationInputTokens": 0,
       "lastTotalCacheReadInputTokens": 0,
       "lastTotalWebSearchRequests": 0,
-      "lastModelUsage": {},
-      "lastSessionId": "d98449b4-f617-4b05-b0b7-89e08ed5e25b",
+      "lastModelUsage": {
+        "my-combo": {
+          "inputTokens": 1321438,
+          "outputTokens": 1565,
+          "thinkingTokens": 0,
+          "cacheReadInputTokens": 0,
+          "cacheCreationInputTokens": 0,
+          "webSearchRequests": 0,
+          "costUSD": 6.646314999999999
+        }
+      },
+      "lastSessionId": "25f54b4c-5cc6-4d60-a372-b1dab137fee5",
       "lastSessionMetrics": {
         "frame_duration_ms_count": 120,
         "frame_duration_ms_min": 0.4023000000161119,
@@ -1008,7 +1018,9 @@
         "frame_duration_ms_p95": 20.918029999978987,
         "frame_duration_ms_p99": 66.83593999999981
       },
-      "lastStartTime": 1789922171486
+      "lastStartTime": 1789841772592,
+      "lastFpsAverage": 0.29,
+      "lastFpsLow1Pct": 89.95
     },
     "C:/Users/devr8/OneDrive/Desktop/New folder": {
       "allowedTools": [],
@@ -1195,7 +1207,7 @@
   },
   "cachedExperimentFeatures": [],
   "lastReleaseNotesSeen": "2.1.278",
-  "closedIssuesLastChecked": 1789841776228,
+  "closedIssuesLastChecked": 1790186344139,
   "officialMarketplaceAutoInstallAttempted": true,
   "officialMarketplaceAutoInstalled": true,
   "hasIdeOnboardingBeenShown": {
@@ -1214,15 +1226,15 @@
   },
   "cachedGrowthBookFeaturesAt": 1787200388250,
   "tipLifetimeShownCounts": {
-    "vscode-gpu-accel-garbled-glyphs": 4,
+    "vscode-gpu-accel-garbled-glyphs": 5,
     "dynamic-workflows": 7,
     "shift-enter": 4,
     "drag-and-drop-images": 4,
     "memory-command": 3,
-    "workflow-size-prompting-ambient": 3,
+    "workflow-size-prompting-ambient": 4,
     "auto-copy-config-hint": 4,
     "theme-command": 3,
-    "enter-to-steer-in-relatime": 2,
+    "enter-to-steer-in-relatime": 3,
     "double-esc-code-restore": 4,
     "todo-list": 2,
     "continue": 4,
@@ -1251,14 +1263,18 @@
     "init": {
       "usageCount": 1,
       "lastUsedAt": 1789629262566
+    },
+    "seed-user": {
+      "usageCount": 1,
+      "lastUsedAt": 1790186383137
     }
   },
   "lastPlanModeUse": 1789844787472,
   "hasSeenAutoModeOutsideReadPrompt": true,
   "tipsHistoryByCommand": {
     "config": {
-      "tipId": "default-permission-mode-config",
-      "numStartups": 58
+      "tipId": "workflow-size-prompting-ambient",
+      "numStartups": 62
     },
     "permissions": {
       "tipId": "permissions",
