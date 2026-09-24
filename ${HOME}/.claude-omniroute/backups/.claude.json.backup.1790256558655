@@ -29,13 +29,13 @@
     "continue": 58,
     "shift-tab": 60,
     "image-paste": 66,
-    "subagent-fanout-nudge": 63,
+    "subagent-fanout-nudge": 66,
     "custom-agents": 6,
     "loop-command-nudge": 64,
     "permissions": 61,
     "rename-conversation": 59,
     "vscode-gpu-accel-garbled-glyphs": 62,
-    "dynamic-workflows": 63,
+    "dynamic-workflows": 66,
     "workflow-size-prompting-ambient": 62,
     "auto-copy-config-hint": 65,
     "custom-commands": 54,
@@ -43,7 +43,7 @@
     "focus-view": 56,
     "default-permission-mode-config": 58
   },
-  "promptQueueUseCount": 13,
+  "promptQueueUseCount": 14,
   "cachedGrowthBookFeatures": {
     "tengu_crystal_beam": {
       "budgetTokens": 0
@@ -1227,7 +1227,7 @@
   "cachedGrowthBookFeaturesAt": 1787200388250,
   "tipLifetimeShownCounts": {
     "vscode-gpu-accel-garbled-glyphs": 5,
-    "dynamic-workflows": 8,
+    "dynamic-workflows": 9,
     "shift-enter": 5,
     "drag-and-drop-images": 4,
     "memory-command": 3,
@@ -1245,7 +1245,7 @@
     "plan-mode-for-complex-tasks": 5,
     "powershell-tool-env": 4,
     "rename-conversation": 3,
-    "subagent-fanout-nudge": 7,
+    "subagent-fanout-nudge": 8,
     "loop-command-nudge": 7,
     "custom-commands": 2,
     "git-worktrees": 2,
@@ -1277,7 +1277,7 @@
       "lastUsedAt": 1790253023459
     }
   },
-  "lastPlanModeUse": 1789844787472,
+  "lastPlanModeUse": 1790253355308,
   "hasSeenAutoModeOutsideReadPrompt": true,
   "tipsHistoryByCommand": {
     "config": {
@@ -1300,5 +1300,9 @@
       "lastUsedAt": 1790252909636,
       "lastUsedNumStartups": 66
     }
+  },
+  "autoModeClassifierBillingNoticeAcknowledgedAt": 1790253686297,
+  "autoModeEnvSetup": {
+    "denials": 1
   }
 }
