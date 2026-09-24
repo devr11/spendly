@@ -1,5 +1,5 @@
 {
-  "numStartups": 64,
+  "numStartups": 65,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -22,7 +22,7 @@
     "color-when-multi-clauding": 2,
     "prompt-queue": 7,
     "enter-to-steer-in-relatime": 63,
-    "shift-enter": 55,
+    "shift-enter": 65,
     "todo-list": 45,
     "drag-and-drop-images": 58,
     "double-esc-code-restore": 58,
@@ -31,7 +31,7 @@
     "image-paste": 46,
     "subagent-fanout-nudge": 63,
     "custom-agents": 6,
-    "loop-command-nudge": 60,
+    "loop-command-nudge": 64,
     "permissions": 61,
     "rename-conversation": 59,
     "vscode-gpu-accel-garbled-glyphs": 62,
@@ -989,7 +989,7 @@
       "lastAPIDuration": 0,
       "lastAPIDurationWithoutRetries": 0,
       "lastToolDuration": 0,
-      "lastDuration": 10979,
+      "lastDuration": 22469,
       "lastLinesAdded": 0,
       "lastLinesRemoved": 0,
       "lastTotalInputTokens": 0,
@@ -998,7 +998,7 @@
       "lastTotalCacheReadInputTokens": 0,
       "lastTotalWebSearchRequests": 0,
       "lastModelUsage": {},
-      "lastSessionId": "d21db5d5-3764-46ae-97ac-7a25e79cf23d",
+      "lastSessionId": "1f70427a-8d06-42b4-9bb0-042e88fe00e3",
       "lastSessionMetrics": {
         "frame_duration_ms_count": 120,
         "frame_duration_ms_min": 0.4023000000161119,
@@ -1008,7 +1008,7 @@
         "frame_duration_ms_p95": 20.918029999978987,
         "frame_duration_ms_p99": 66.83593999999981
       },
-      "lastStartTime": 1790187224006
+      "lastStartTime": 1790222143082
     },
     "C:/Users/devr8/OneDrive/Desktop/New folder": {
       "allowedTools": [],
@@ -1216,7 +1216,7 @@
   "tipLifetimeShownCounts": {
     "vscode-gpu-accel-garbled-glyphs": 5,
     "dynamic-workflows": 8,
-    "shift-enter": 4,
+    "shift-enter": 5,
     "drag-and-drop-images": 4,
     "memory-command": 3,
     "workflow-size-prompting-ambient": 4,
@@ -1234,7 +1234,7 @@
     "powershell-tool-env": 4,
     "rename-conversation": 3,
     "subagent-fanout-nudge": 7,
-    "loop-command-nudge": 6,
+    "loop-command-nudge": 7,
     "custom-commands": 2,
     "git-worktrees": 2,
     "focus-view": 1,
@@ -1259,6 +1259,10 @@
     "seed.expense": {
       "usageCount": 1,
       "lastUsedAt": 1790187279703
+    },
+    "create-spec": {
+      "usageCount": 1,
+      "lastUsedAt": 1790222521149
     }
   },
   "lastPlanModeUse": 1789844787472,
