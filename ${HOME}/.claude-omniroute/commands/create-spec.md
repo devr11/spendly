@@ -114,18 +114,24 @@ something that can be verified by running the app.
 ---
 
 ## Step 8 — Save the spec
-Save to: `C:\Users\devr8\Downloads\expense-tracker\expense-tracker\${HOME}\.claude-omniroute\specs\<step_number>-<feature_slug>.md`
+Save to: `C:/Users/devr8/Downloads/expense-tracker/expense-tracker/${HOME}/.claude-omniroute/specs/<step_number>-<feature_slug>.md`
 
 ## Step 9 — Report to the user
 Print a short summary in this exact format:
 ```
 Branch:    <branch_name>
-Spec file: C:\Users\devr8\Downloads\expense-tracker\expense-tracker\${HOME}\.    claude-omniroute\specs\<step_number>-<feature_slug>.md
+Spec file: C:/Users/devr8/Downloads/expense-tracker/expense-tracker/${HOME}/.claude-omniroute/specs/<step_number>-<feature_slug>.md
 Title:     <feature_title>
 ```
 
+The project root is:
+C:/Users/devr8/Downloads/expense-tracker/expense-tracker
+
+The spec directory is:
+C:/Users/devr8/Downloads/expense-tracker/expense-tracker/.claude-omniroute/specs
+
 Then tell the user:
-"Review the spec at `C:\Users\devr8\Downloads\expense-tracker\expense-tracker\${HOME}\.claude-omniroute\specs\<step_number>-<feature_slug>.md`
+"Review the spec at `C:/Users/devr8/Downloads/expense-tracker/expense-tracker/${HOME}/.claude-omniroute/specs/<step_number>-<feature_slug>.md`
 then enter Plan Mode with Shift+Tab twice to begin implementation."
 
 Do not print the full spec in chat unless explicitly asked.

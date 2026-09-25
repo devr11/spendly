@@ -1,5 +1,5 @@
 {
-  "numStartups": 66,
+  "numStartups": 69,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -15,7 +15,7 @@
   "tipsHistory": {
     "new-user-warmup": 9,
     "plan-mode-for-complex-tasks": 55,
-    "memory-command": 53,
+    "memory-command": 68,
     "theme-command": 62,
     "powershell-tool-env": 64,
     "status-line": 52,
@@ -24,26 +24,26 @@
     "enter-to-steer-in-relatime": 63,
     "shift-enter": 65,
     "todo-list": 45,
-    "drag-and-drop-images": 58,
-    "double-esc-code-restore": 58,
-    "continue": 58,
+    "drag-and-drop-images": 68,
+    "double-esc-code-restore": 68,
+    "continue": 68,
     "shift-tab": 60,
     "image-paste": 66,
-    "subagent-fanout-nudge": 63,
+    "subagent-fanout-nudge": 69,
     "custom-agents": 6,
-    "loop-command-nudge": 64,
+    "loop-command-nudge": 67,
     "permissions": 61,
     "rename-conversation": 59,
     "vscode-gpu-accel-garbled-glyphs": 62,
-    "dynamic-workflows": 63,
+    "dynamic-workflows": 66,
     "workflow-size-prompting-ambient": 62,
     "auto-copy-config-hint": 65,
-    "custom-commands": 54,
+    "custom-commands": 69,
     "git-worktrees": 61,
     "focus-view": 56,
-    "default-permission-mode-config": 58
+    "default-permission-mode-config": 68
   },
-  "promptQueueUseCount": 13,
+  "promptQueueUseCount": 14,
   "cachedGrowthBookFeatures": {
     "tengu_crystal_beam": {
       "budgetTokens": 0
@@ -837,7 +837,7 @@
   "seenNotifications": {},
   "migrationVersion": 14,
   "userID": "3bc96f63fb94c08ac76a4db6537f1faa3733d03d6528206b396c66469bab2737",
-  "changelogLastFetched": 1790252909738,
+  "changelogLastFetched": 1790271940422,
   "autoUpdatesProtectedForNative": true,
   "shiftEnterKeyBindingInstalled": true,
   "hasCompletedOnboarding": true,
@@ -985,27 +985,27 @@
       "hasClaudeMdExternalIncludesWarningShown": false,
       "lastGracefulShutdown": false,
       "lastVersionBase": "2.1.281",
-      "lastCost": 3.9562430000000006,
-      "lastAPIDuration": 202877,
-      "lastAPIDurationWithoutRetries": 202563,
-      "lastToolDuration": 12672,
-      "lastDuration": 3467563,
-      "lastLinesAdded": 425,
-      "lastLinesRemoved": 2,
-      "lastTotalInputTokens": 928663,
-      "lastTotalOutputTokens": 1256,
+      "lastCost": 23.804131000000005,
+      "lastAPIDuration": 889089,
+      "lastAPIDurationWithoutRetries": 887751,
+      "lastToolDuration": 93272,
+      "lastDuration": 10200433,
+      "lastLinesAdded": 1077,
+      "lastLinesRemoved": 189,
+      "lastTotalInputTokens": 5869555,
+      "lastTotalOutputTokens": 5472,
       "lastTotalCacheCreationInputTokens": 0,
       "lastTotalCacheReadInputTokens": 0,
       "lastTotalWebSearchRequests": 0,
       "lastModelUsage": {
         "my-combo": {
-          "inputTokens": 928663,
-          "outputTokens": 1256,
+          "inputTokens": 5869555,
+          "outputTokens": 5472,
           "thinkingTokens": 0,
           "cacheReadInputTokens": 0,
           "cacheCreationInputTokens": 0,
           "webSearchRequests": 0,
-          "costUSD": 3.9562430000000006
+          "costUSD": 23.804131000000005
         }
       },
       "lastSessionId": "0dd2d74a-4c7b-4fc4-8a71-7753f37056aa",
@@ -1019,8 +1019,8 @@
         "frame_duration_ms_p99": 66.83593999999981
       },
       "lastStartTime": 1790186341886,
-      "lastFpsAverage": 1.91,
-      "lastFpsLow1Pct": 262.27
+      "lastFpsAverage": 1.73,
+      "lastFpsLow1Pct": 130.96
     },
     "C:/Users/devr8/OneDrive/Desktop/New folder": {
       "allowedTools": [],
@@ -1206,8 +1206,8 @@
     }
   },
   "cachedExperimentFeatures": [],
-  "lastReleaseNotesSeen": "2.1.280",
-  "closedIssuesLastChecked": 1790186344139,
+  "lastReleaseNotesSeen": "2.1.281",
+  "closedIssuesLastChecked": 1790272836453,
   "officialMarketplaceAutoInstallAttempted": true,
   "officialMarketplaceAutoInstalled": true,
   "hasIdeOnboardingBeenShown": {
@@ -1227,17 +1227,17 @@
   "cachedGrowthBookFeaturesAt": 1787200388250,
   "tipLifetimeShownCounts": {
     "vscode-gpu-accel-garbled-glyphs": 5,
-    "dynamic-workflows": 8,
+    "dynamic-workflows": 9,
     "shift-enter": 5,
-    "drag-and-drop-images": 4,
-    "memory-command": 3,
+    "drag-and-drop-images": 5,
+    "memory-command": 4,
     "workflow-size-prompting-ambient": 4,
     "auto-copy-config-hint": 5,
     "theme-command": 3,
     "enter-to-steer-in-relatime": 3,
-    "double-esc-code-restore": 4,
+    "double-esc-code-restore": 5,
     "todo-list": 2,
-    "continue": 4,
+    "continue": 5,
     "shift-tab": 4,
     "image-paste": 3,
     "status-line": 2,
@@ -1245,19 +1245,19 @@
     "plan-mode-for-complex-tasks": 5,
     "powershell-tool-env": 4,
     "rename-conversation": 3,
-    "subagent-fanout-nudge": 7,
-    "loop-command-nudge": 7,
-    "custom-commands": 2,
+    "subagent-fanout-nudge": 9,
+    "loop-command-nudge": 8,
+    "custom-commands": 3,
     "git-worktrees": 2,
     "focus-view": 1,
-    "default-permission-mode-config": 1
+    "default-permission-mode-config": 2
   },
   "hasOpenedAgentsView": true,
   "agentLastUsed": {
     "bg": 1783770361895
   },
   "cachedExperimentData": {},
-  "lastClawdEntranceVersion": "2.1.280",
+  "lastClawdEntranceVersion": "2.1.281",
   "hasResetAutoModeOptInForDefaultOffer": true,
   "skillUsage": {
     "init": {
@@ -1273,20 +1273,24 @@
       "lastUsedAt": 1790187279703
     },
     "create-spec": {
-      "usageCount": 3,
-      "lastUsedAt": 1790253023459
+      "usageCount": 5,
+      "lastUsedAt": 1790272435142
     }
   },
   "lastPlanModeUse": 1790253355308,
   "hasSeenAutoModeOutsideReadPrompt": true,
   "tipsHistoryByCommand": {
     "config": {
-      "tipId": "workflow-size-prompting-ambient",
-      "numStartups": 62
+      "tipId": "default-permission-mode-config",
+      "numStartups": 68
     },
     "permissions": {
       "tipId": "permissions",
       "numStartups": 61
+    },
+    "memory": {
+      "tipId": "memory-command",
+      "numStartups": 68
     }
   },
   "pluginUsage": {
@@ -1300,5 +1304,9 @@
       "lastUsedAt": 1790252909636,
       "lastUsedNumStartups": 66
     }
+  },
+  "autoModeClassifierBillingNoticeAcknowledgedAt": 1790253686297,
+  "autoModeEnvSetup": {
+    "denials": 1
   }
 }
