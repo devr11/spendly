@@ -26,9 +26,6 @@ def landing():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    if 'user_id' in session:
-        return redirect(url_for('landing'))
-
     if request.method == "POST":
         # Extract form data
         name = request.form.get("name", "").strip()
@@ -78,9 +75,6 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if 'user_id' in session:
-        return redirect(url_for('landing'))
-
     if request.method == "POST":
         # Extract form data
         email = request.form.get("email", "").strip()

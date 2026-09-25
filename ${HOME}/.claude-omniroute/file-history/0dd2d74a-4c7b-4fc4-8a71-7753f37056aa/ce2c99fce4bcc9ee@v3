@@ -1,0 +1,279 @@
+# Implementation Plan: Login and Logout
+
+## Context
+
+This plan implements Step 3 of the Spendly roadmap - login and logout functionality. The current application has:
+- Step 1 complete: Database with `users` table (id, email, password_hash, name, created_at)
+- Step 2 complete: User registration with password hashing, session management, and auto-login
+- A GET `/login` route that renders a login form
+- A placeholder `/logout` route returning "Logout — coming in Step 3"
+- Session management already configured (`app.secret_key` set)
+- Flask imports already include: `request`, `session`, `redirect`, `url_for`, `flash`
+- Import for `generate_password_hash` exists but NOT `check_password_hash`
+- Demo user in database: email `demo@spendly.com`, password `demo123`
+
+The goal is to enable existing users to authenticate with their email/password, manage sessions securely, and provide a logout mechanism that clears the session.
+
+## Implementation Steps
+
+### 1. Update app.py - Add check_password_hash Import
+
+**File:** `app.py` (line 2)
+
+**Current import:**
+```python
+from werkzeug.security import generate_password_hash
+```
+
+**Change to:**
+```python
+from werkzeug.security import generate_password_hash, check_password_hash
+```
+
+This adds the password verification function needed for login.
+
+### 2. Implement POST /login Route Handler
+
+**File:** `app.py` (lines 76-78)
+
+**Current code:**
+```python
+@app.route("/login")
+def login():
+    return render_template("login.html")
+```
+
+**Replace with:**
+```python
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # Extract form data
+        email = request.form.get("email", "").strip()
+        password = request.form.get("password", "")
+
+        # Server-side validation
+        if not email:
+            return render_template("login.html", error="Email is required", email=email)
+
+        if not password:
+            return render_template("login.html", error="Password is required", email=email)
+
+        # Query database for user by email
+        db = get_db()
+        user = db.execute(
+            'SELECT id, password_hash FROM users WHERE email = ?',
+            (email,)
+        ).fetchone()
+
+        # Verify user exists and password is correct
+        if user is None or not check_password_hash(user['password_hash'], password):
+            return render_template("login.html", error="Invalid email or password", email=email)
+
+        # Login successful - store user_id in session
+        session['user_id'] = user['id']
+        flash('Welcome back! You are now logged in.')
+        return redirect(url_for('profile'))
+
+    return render_template("login.html")
+```
+
+**Logic breakdown:**
+1. **Extract and validate inputs:** Get email (stripped) and password from form
+2. **Empty field validation:** Check both fields are non-empty
+3. **Database query:** Use parameterized query to fetch user by email
+4. **Authentication:** Check if user exists AND password matches using `check_password_hash`
+5. **Security best practice:** Use same error message ("Invalid email or password") for both non-existent email and wrong password
+6. **Success flow:** Store user_id in session, flash success message, redirect to /profile
+7. **Error handling:** Preserve entered email on validation errors (password never preserved)
+
+### 3. Implement GET /logout Route
+
+**File:** `app.py` (lines 95-97)
+
+**Current code:**
+```python
+@app.route("/logout")
+def logout():
+    return "Logout — coming in Step 3"
+```
+
+**Replace with:**
+```python
+@app.route("/logout")
+def logout():
+    session.pop('user_id', None)
+    flash('You have been logged out.')
+    return redirect(url_for('landing'))
+```
+
+**Logic:**
+1. **Clear session:** Remove user_id from session using `session.pop('user_id', None)`
+2. **Flash message:** Inform user they've been logged out
+3. **Redirect:** Send user back to landing page (homepage)
+
+**Why `session.pop('user_id', None)` instead of `session.clear()`:**
+- `session.pop('user_id', None)` only removes the user_id key, preserving any other session data
+- More targeted and predictable
+- The `None` default prevents KeyError if user_id doesn't exist
+
+### 4. Update templates/login.html - Add Flash Messages and Preserve Email
+
+**File:** `templates/login.html`
+
+**Changes needed:**
+
+1. **Add flash message display** (after line 15, before the error block):
+   ```jinja2
+   {% with messages = get_flashed_messages() %}
+       {% if messages %}
+           {% for message in messages %}
+           <div class="auth-success">{{ message }}</div>
+           {% endfor %}
+       {% endif %}
+   {% endwith %}
+
+   {% if error %}
+   <div class="auth-error">{{ error }}</div>
+   {% endif %}
+   ```
+
+2. **Preserve email field value** on validation error (line 23-25):
+   
+   **Current:**
+   ```html
+   <input type="email" id="email" name="email"
+          class="form-input" placeholder="nitish@example.com"
+          required autofocus>
+   ```
+   
+   **Change to:**
+   ```html
+   <input type="email" id="email" name="email"
+          class="form-input" placeholder="nitish@example.com"
+          value="{{ email if email else '' }}"
+          required autofocus>
+   ```
+
+**Note:** Password field is intentionally NOT preserved for security reasons (standard practice).
+
+## Files to Modify
+
+1. **app.py**
+   - Line 2: Add `check_password_hash` to werkzeug.security import
+   - Lines 76-78: Replace `/login` GET-only route with GET/POST handler (authentication logic)
+   - Lines 95-97: Replace placeholder `/logout` route with session clearing logic
+
+2. **templates/login.html**
+   - After line 15: Add flash message display block (using existing `.auth-success` CSS class)
+   - Line 23-25: Add `value="{{ email if email else '' }}"` to email input field
+
+## No New Files or Dependencies
+
+- All required packages already in requirements.txt (Flask, werkzeug)
+- No new files needed
+- Uses existing database schema and functions from database/db.py
+- CSS class `.auth-success` already exists from Step 2 (registration)
+
+## Implementation Rules
+
+- ✅ Use parameterized queries only (no string interpolation in SQL)
+- ✅ Verify passwords with `werkzeug.security.check_password_hash(stored_hash, provided_password)`
+- ✅ No SQLAlchemy or ORMs - raw SQL with `get_db()`
+- ✅ Server-side validation for all fields
+- ✅ Security best practice: Same error message for non-existent email and wrong password
+- ✅ Preserve email on validation errors (not password)
+- ✅ Use Flask's `session` for authentication state
+- ✅ Use Flask's `flash()` for user feedback messages
+- ✅ Use CSS variables (`.auth-success` class already defined)
+
+## Verification & Testing
+
+After implementation, verify the feature works by testing these scenarios:
+
+### Test Case 1: Empty Fields Validation
+1. Navigate to http://localhost:5001/login
+2. Submit form with empty email → should show "Email is required" error
+3. Submit form with empty password → should show "Password is required" error
+4. Verify email is preserved in form when showing errors
+
+### Test Case 2: Invalid Email (Non-existent User)
+1. Enter non-existent email: "notreal@example.com"
+2. Enter any password: "password123"
+3. Submit form → should show "Invalid email or password" error
+4. Verify email is preserved, password field is empty
+
+### Test Case 3: Wrong Password
+1. Enter valid email from database: "demo@spendly.com"
+2. Enter wrong password: "wrongpassword"
+3. Submit form → should show "Invalid email or password" error
+4. Verify same error message as Test Case 2 (security best practice)
+5. Verify email is preserved, password field is empty
+
+### Test Case 4: Successful Login with Demo User
+1. Enter email: "demo@spendly.com"
+2. Enter password: "demo123"
+3. Submit form
+4. Verify:
+   - Redirected to /profile page
+   - Success message displayed: "Welcome back! You are now logged in."
+   - Session contains user_id (can verify programmatically)
+
+### Test Case 5: Logout
+1. After logging in (Test Case 4), access http://localhost:5001/logout
+2. Verify:
+   - Redirected to landing page (/)
+   - Logout message displayed: "You have been logged out."
+   - Session no longer contains user_id
+
+### Test Case 6: Full Authentication Flow
+1. Register a new user:
+   - Go to /register
+   - Create account with name "Test User", email "test@example.com", password "testpass123"
+   - Verify auto-login and redirect to /profile
+2. Logout (access /logout)
+3. Login with the same credentials:
+   - Go to /login
+   - Enter email "test@example.com" and password "testpass123"
+   - Verify successful login and redirect to /profile
+
+### Running the App
+```bash
+python app.py
+```
+Access at: http://localhost:5001
+
+### Database Verification
+To verify users exist for testing:
+```bash
+sqlite3 expense_tracker.db "SELECT id, name, email FROM users;"
+```
+
+## Edge Cases Handled
+
+1. **Whitespace in email:** Email is stripped before validation and lookup
+2. **Missing user_id in session on logout:** `session.pop('user_id', None)` handles gracefully
+3. **SQL injection:** Prevented by parameterized queries
+4. **Timing attacks:** Using `check_password_hash` which has timing-safe comparison
+5. **Information disclosure:** Same error message for non-existent user and wrong password
+6. **Form data preservation:** Email preserved on error (UX), password not preserved (security)
+7. **Empty password:** Validated before database query (performance and clarity)
+
+## Success Criteria (Definition of Done)
+
+All items from the spec must pass:
+- [ ] User can submit login form with email and password
+- [ ] Form validates that both fields are required and non-empty
+- [ ] Submitting with non-existent email shows error: "Invalid email or password"
+- [ ] Submitting with wrong password shows error: "Invalid email or password"
+- [ ] Submitting with correct credentials logs user in (session contains user_id)
+- [ ] After successful login, user is redirected to /profile
+- [ ] After successful login, success message is displayed
+- [ ] Error messages display on the form when validation fails
+- [ ] Form preserves entered email when showing errors (password not preserved)
+- [ ] User can access /logout route
+- [ ] Logout clears the session (user_id removed from session)
+- [ ] After logout, user is redirected to landing page
+- [ ] After logout, logout message is displayed
+- [ ] Login can be tested with demo user (email: demo@spendly.com, password: demo123)
+- [ ] Full flow works: register → logout → login with same credentials

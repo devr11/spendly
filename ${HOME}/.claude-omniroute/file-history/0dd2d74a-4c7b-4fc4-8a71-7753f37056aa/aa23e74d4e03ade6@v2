@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Sign in — Spendly{% endblock %}
+{% block title %}Create account — Spendly{% endblock %}
 
 {% block content %}
 
@@ -8,8 +8,8 @@
     <div class="auth-container">
 
         <div class="auth-header">
-            <h1 class="auth-title">Welcome back</h1>
-            <p class="auth-subtitle">Sign in to your Spendly account</p>
+            <h1 class="auth-title">Create your account</h1>
+            <p class="auth-subtitle">Start tracking your expenses today</p>
         </div>
 
         <div class="auth-card">
@@ -25,27 +25,34 @@
             <div class="auth-error">{{ error }}</div>
             {% endif %}
 
-            <form method="POST" action="/login">
+            <form method="POST" action="/register">
+                <div class="form-group">
+                    <label for="name">Full name</label>
+                    <input type="text" id="name" name="name"
+                           class="form-input" placeholder="Nitish Kumar"
+                           value="{{ name if name else '' }}"
+                           required autofocus>
+                </div>
                 <div class="form-group">
                     <label for="email">Email address</label>
                     <input type="email" id="email" name="email"
                            class="form-input" placeholder="nitish@example.com"
                            value="{{ email if email else '' }}"
-                           required autofocus>
+                           required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password"
-                           class="form-input" placeholder="Your password"
+                           class="form-input" placeholder="Min. 8 characters"
                            required>
                 </div>
-                <button type="submit" class="btn-submit">Sign in</button>
+                <button type="submit" class="btn-submit">Create account</button>
             </form>
         </div>
 
         <p class="auth-switch">
-            Don't have an account?
-            <a href="{{ url_for('register') }}">Create one free</a>
+            Already have an account?
+            <a href="{{ url_for('login') }}">Sign in</a>
         </p>
 
     </div>
