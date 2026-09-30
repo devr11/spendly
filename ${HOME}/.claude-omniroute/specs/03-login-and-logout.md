@@ -66,7 +66,7 @@ No new dependencies. Required packages already in `requirements.txt`:
 - [ ] Submitting with non-existent email shows error: "Invalid email or password"
 - [ ] Submitting with wrong password shows error: "Invalid email or password"
 - [ ] Submitting with correct credentials logs user in (session contains user_id)
-- [ ] After successful login, user is redirected to `/profile`
+- [ ] After successful login, user is redirected to `/`
 - [ ] After successful login, success message is displayed
 - [ ] Error messages display on the form when validation fails
 - [ ] Form preserves entered email when showing errors (password not preserved)

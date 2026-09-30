@@ -40,6 +40,6 @@ This implementation plan covers Step 3 of the Spendly roadmap: User Login and Lo
 - [ ] Submitting non-existent email sh
 ows "Invalid email or password".
 - [ ] Submitting incorrect password shows "Invalid email or password".
-- [ ] Submitting valid credentials (e.g., demo@spendly.com / demo123) logs the user in, sets `session['user_id']`, flashes success message, and redirects to `/profile`.
+- [ ] Submitting valid credentials (e.g., demo@spendly.com / demo123) logs the user in, sets `session['user_id']`, flashes success message, and redirects to `/`.
 - [ ] Accessing `/logout` clears `user_id` from session, flashes logout message, and redirects to landing page.
 - [ ] Email input preserves entered value on validation failure.
