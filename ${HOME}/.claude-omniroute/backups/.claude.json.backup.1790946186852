@@ -1,5 +1,5 @@
 {
-  "numStartups": 70,
+  "numStartups": 74,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
@@ -14,10 +14,10 @@
   },
   "tipsHistory": {
     "new-user-warmup": 9,
-    "plan-mode-for-complex-tasks": 55,
+    "plan-mode-for-complex-tasks": 71,
     "memory-command": 68,
     "theme-command": 62,
-    "powershell-tool-env": 64,
+    "powershell-tool-env": 74,
     "status-line": 52,
     "color-when-multi-clauding": 2,
     "prompt-queue": 7,
@@ -29,21 +29,21 @@
     "continue": 68,
     "shift-tab": 70,
     "image-paste": 66,
-    "subagent-fanout-nudge": 69,
+    "subagent-fanout-nudge": 72,
     "custom-agents": 6,
     "loop-command-nudge": 70,
-    "permissions": 61,
-    "rename-conversation": 59,
+    "permissions": 71,
+    "rename-conversation": 74,
     "vscode-gpu-accel-garbled-glyphs": 62,
     "dynamic-workflows": 69,
-    "workflow-size-prompting-ambient": 62,
+    "workflow-size-prompting-ambient": 74,
     "auto-copy-config-hint": 65,
     "custom-commands": 69,
     "git-worktrees": 61,
-    "focus-view": 56,
+    "focus-view": 71,
     "default-permission-mode-config": 68
   },
-  "promptQueueUseCount": 14,
+  "promptQueueUseCount": 20,
   "cachedGrowthBookFeatures": {
     "tengu_crystal_beam": {
       "budgetTokens": 0
@@ -837,7 +837,7 @@
   "seenNotifications": {},
   "migrationVersion": 14,
   "userID": "3bc96f63fb94c08ac76a4db6537f1faa3733d03d6528206b396c66469bab2737",
-  "changelogLastFetched": 1790791604270,
+  "changelogLastFetched": 1790928749481,
   "autoUpdatesProtectedForNative": true,
   "shiftEnterKeyBindingInstalled": true,
   "hasCompletedOnboarding": true,
@@ -984,31 +984,31 @@
       "hasClaudeMdExternalIncludesApproved": false,
       "hasClaudeMdExternalIncludesWarningShown": false,
       "lastGracefulShutdown": false,
-      "lastVersionBase": "2.1.282",
-      "lastCost": 23.804131000000005,
-      "lastAPIDuration": 889089,
-      "lastAPIDurationWithoutRetries": 887751,
-      "lastToolDuration": 93272,
-      "lastDuration": 10200433,
-      "lastLinesAdded": 1077,
-      "lastLinesRemoved": 189,
-      "lastTotalInputTokens": 5869555,
-      "lastTotalOutputTokens": 5472,
+      "lastVersionBase": "2.1.287",
+      "lastCost": 14.831793200000003,
+      "lastAPIDuration": 1594974,
+      "lastAPIDurationWithoutRetries": 1594125,
+      "lastToolDuration": 68670,
+      "lastDuration": 5404925,
+      "lastLinesAdded": 358,
+      "lastLinesRemoved": 4,
+      "lastTotalInputTokens": 3445684,
+      "lastTotalOutputTokens": 26940,
       "lastTotalCacheCreationInputTokens": 0,
-      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalCacheReadInputTokens": 2551286,
       "lastTotalWebSearchRequests": 0,
       "lastModelUsage": {
         "my-combo": {
-          "inputTokens": 5869555,
-          "outputTokens": 5472,
+          "inputTokens": 3445684,
+          "outputTokens": 26940,
           "thinkingTokens": 0,
-          "cacheReadInputTokens": 0,
+          "cacheReadInputTokens": 2551286,
           "cacheCreationInputTokens": 0,
           "webSearchRequests": 0,
-          "costUSD": 23.804131000000005
+          "costUSD": 14.831793200000003
         }
       },
-      "lastSessionId": "0dd2d74a-4c7b-4fc4-8a71-7753f37056aa",
+      "lastSessionId": "ba8cf811-d1fd-4517-9c96-b470c35f1e2d",
       "lastSessionMetrics": {
         "frame_duration_ms_count": 120,
         "frame_duration_ms_min": 0.4023000000161119,
@@ -1018,9 +1018,9 @@
         "frame_duration_ms_p95": 20.918029999978987,
         "frame_duration_ms_p99": 66.83593999999981
       },
-      "lastStartTime": 1790186341886,
-      "lastFpsAverage": 1.73,
-      "lastFpsLow1Pct": 130.96
+      "lastStartTime": 1790791603007,
+      "lastFpsAverage": 0.24,
+      "lastFpsLow1Pct": 280.73
     },
     "C:/Users/devr8/OneDrive/Desktop/New folder": {
       "allowedTools": [],
@@ -1207,7 +1207,7 @@
   },
   "cachedExperimentFeatures": [],
   "lastReleaseNotesSeen": "2.1.282",
-  "closedIssuesLastChecked": 1790791604873,
+  "closedIssuesLastChecked": 1790878645942,
   "officialMarketplaceAutoInstallAttempted": true,
   "officialMarketplaceAutoInstalled": true,
   "hasIdeOnboardingBeenShown": {
@@ -1231,7 +1231,7 @@
     "shift-enter": 5,
     "drag-and-drop-images": 5,
     "memory-command": 4,
-    "workflow-size-prompting-ambient": 4,
+    "workflow-size-prompting-ambient": 5,
     "auto-copy-config-hint": 5,
     "theme-command": 3,
     "enter-to-steer-in-relatime": 3,
@@ -1241,15 +1241,15 @@
     "shift-tab": 5,
     "image-paste": 3,
     "status-line": 2,
-    "permissions": 4,
-    "plan-mode-for-complex-tasks": 5,
-    "powershell-tool-env": 4,
-    "rename-conversation": 3,
-    "subagent-fanout-nudge": 9,
+    "permissions": 5,
+    "plan-mode-for-complex-tasks": 6,
+    "powershell-tool-env": 5,
+    "rename-conversation": 4,
+    "subagent-fanout-nudge": 10,
     "loop-command-nudge": 9,
     "custom-commands": 3,
     "git-worktrees": 2,
-    "focus-view": 1,
+    "focus-view": 2,
     "default-permission-mode-config": 2
   },
   "hasOpenedAgentsView": true,
@@ -1275,22 +1275,30 @@
     "create-spec": {
       "usageCount": 6,
       "lastUsedAt": 1790791723794
+    },
+    "run": {
+      "usageCount": 1,
+      "lastUsedAt": 1790875314185
     }
   },
-  "lastPlanModeUse": 1790253355308,
+  "lastPlanModeUse": 1790875686579,
   "hasSeenAutoModeOutsideReadPrompt": true,
   "tipsHistoryByCommand": {
     "config": {
-      "tipId": "default-permission-mode-config",
-      "numStartups": 68
+      "tipId": "workflow-size-prompting-ambient",
+      "numStartups": 74
     },
     "permissions": {
       "tipId": "permissions",
-      "numStartups": 61
+      "numStartups": 71
     },
     "memory": {
       "tipId": "memory-command",
       "numStartups": 68
+    },
+    "focus": {
+      "tipId": "focus-view",
+      "numStartups": 71
     }
   },
   "pluginUsage": {
@@ -1303,9 +1311,19 @@
       "usageCount": 0,
       "lastUsedAt": 1790252909636,
       "lastUsedNumStartups": 66
+    },
+    "cc-plugin-plugin-authoring@builtin": {
+      "usageCount": 0,
+      "lastUsedAt": 1790920463784,
+      "lastUsedNumStartups": 72
+    },
+    "cc-plugin-diff@builtin": {
+      "usageCount": 0,
+      "lastUsedAt": 1790943198564,
+      "lastUsedNumStartups": 74
     }
   },
-  "autoModeClassifierBillingNoticeAcknowledgedAt": 1790253686297,
+  "autoModeClassifierBillingNoticeAcknowledgedAt": 1790875993381,
   "autoModeEnvSetup": {
     "denials": 1
   }
