@@ -1,6 +1,5 @@
 ﻿from flask import Flask, render_template, request, session, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
-from functools import wraps
 import sqlite3
 from database.db import get_db, init_db, seed_db, close_db
 
@@ -17,86 +16,6 @@ with app.app_context():
 
 
 # ------------------------------------------------------------------ #
-# Auth helpers                                                        #
-# ------------------------------------------------------------------ #
-
-def login_required(view):
-    """Redirect anonymous visitors to the login page."""
-    @wraps(view)
-    def wrapped(*args, **kwargs):
-        if not session.get('user_id'):
-            flash('Please sign in to view that page.')
-            return redirect(url_for('login'))
-        return view(*args, **kwargs)
-    return wrapped
-
-
-# ------------------------------------------------------------------ #
-# Hardcoded profile data (Step 4 - replaced by DB queries in Step 5)  #
-# ------------------------------------------------------------------ #
-
-PROFILE_USER = {
-    "name": "Demo User",
-    "email": "demo@spendly.com",
-    "member_since": "September 2026",
-}
-
-# Newest first - the order a real `ORDER BY date DESC` will return in Step 5.
-PROFILE_TRANSACTIONS = [
-    {"date": "2026-09-18", "date_label": "18 Sep 2026", "description": "Coffee", "category": "Food", "amount": 8.75},
-    {"date": "2026-09-17", "date_label": "17 Sep 2026", "description": "Miscellaneous", "category": "Other", "amount": 25.00},
-    {"date": "2026-09-16", "date_label": "16 Sep 2026", "description": "Bus fare", "category": "Transport", "amount": 12.50},
-    {"date": "2026-09-15", "date_label": "15 Sep 2026", "description": "Weekly grocery shopping", "category": "Food", "amount": 45.99},
-    {"date": "2026-09-14", "date_label": "14 Sep 2026", "description": "Concert tickets", "category": "Entertainment", "amount": 89.00},
-    {"date": "2026-09-13", "date_label": "13 Sep 2026", "description": "Pharmacy", "category": "Health", "amount": 35.00},
-    {"date": "2026-09-12", "date_label": "12 Sep 2026", "description": "New shoes", "category": "Shopping", "amount": 200.00},
-    {"date": "2026-09-10", "date_label": "10 Sep 2026", "description": "Internet bill", "category": "Bills", "amount": 150.00},
-]
-
-
-def _build_profile_context():
-    """
-    Assemble the profile page context from hardcoded data.
-    Step 5 replaces the `txns` source with a get_db() query; everything
-    below it derives from that list and stays unchanged.
-    """
-    txns = PROFILE_TRANSACTIONS
-    total = sum(t["amount"] for t in txns)
-
-    # Per-category totals
-    totals = {}
-    for t in txns:
-        totals[t["category"]] = totals.get(t["category"], 0.0) + t["amount"]
-
-    # Bars are scaled to the largest category so the biggest one fills the
-    # track; the true share of total spending is shown as the % label.
-    peak = max(totals.values()) if totals else 0.0
-    categories = [
-        {
-            "name": name,
-            "slug": name.lower().replace(" ", "-"),
-            "amount": amount,
-            "share": round(amount / total * 100) if total else 0,
-            # width bucket, snapped to 5% so a CSS class can carry it
-            "bar_step": int(round(amount / peak * 20) * 5) if peak else 0,
-        }
-        for name, amount in sorted(totals.items(), key=lambda kv: kv[1], reverse=True)
-    ]
-
-    full_name = PROFILE_USER["name"]
-    initials = "".join(part[0] for part in full_name.split()[:2]).upper() or "?"
-
-    return {
-        "user": {**PROFILE_USER, "initials": initials},
-        "transactions": txns,
-        "total_spent": total,
-        "transaction_count": len(txns),
-        "top_category": categories[0]["name"] if categories else "-",
-        "categories": categories,
-    }
-
-
-# ------------------------------------------------------------------ #
 # Routes                                                              #
 # ------------------------------------------------------------------ #
 
@@ -108,7 +27,7 @@ def landing():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if 'user_id' in session:
-        return redirect(url_for('profile'))
+        return redirect(url_for('landing'))
 
     if request.method == "POST":
         # Extract form data
@@ -146,11 +65,10 @@ def register():
             user_id = cursor.lastrowid
             db.commit()
 
-            # Log user in and send them to their profile
+            # Log user in and redirect to landing
             session['user_id'] = user_id
-            session['user_name'] = name
             flash('Account created successfully! Welcome to Spendly.')
-            return redirect(url_for('profile'))
+            return redirect(url_for('landing'))
 
         except sqlite3.IntegrityError:
             return render_template("register.html", error="Email already registered", name=name, email=email)
@@ -161,7 +79,7 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if 'user_id' in session:
-        return redirect(url_for('profile'))
+        return redirect(url_for('landing'))
 
     if request.method == "POST":
         # Extract form data
@@ -178,7 +96,7 @@ def login():
         # Query database for user by email
         db = get_db()
         user = db.execute(
-            'SELECT id, name, password_hash FROM users WHERE email = ?',
+            'SELECT id, password_hash FROM users WHERE email = ?',
             (email,)
         ).fetchone()
 
@@ -188,9 +106,8 @@ def login():
 
         # Login successful - store user_id in session
         session['user_id'] = user['id']
-        session['user_name'] = user['name']
         flash('Welcome back! You are now logged in.')
-        return redirect(url_for('profile'))
+        return redirect(url_for('landing'))
 
     return render_template("login.html")
 
@@ -205,23 +122,21 @@ def privacy():
     return render_template("privacy.html")
 
 
+# ------------------------------------------------------------------ #
+# Placeholder routes â€” students will implement these                  #
+# ------------------------------------------------------------------ #
+
 @app.route("/logout")
 def logout():
     session.pop('user_id', None)
-    session.pop('user_name', None)
     flash('You have been logged out.')
     return redirect(url_for('landing'))
 
 
 @app.route("/profile")
-@login_required
 def profile():
-    return render_template("profile.html", **_build_profile_context())
+    return "Profile page â€” coming in Step 4"
 
-
-# ------------------------------------------------------------------ #
-# Placeholder routes â€” students will implement these                  #
-# ------------------------------------------------------------------ #
 
 @app.route("/expenses/add")
 def add_expense():

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}Profile — Spendly{% endblock %}
+
+{% block content %}
+
+<section class="profile-section">
+
+    <header class="profile-header">
+        <h1 class="profile-title">Your profile</h1>
+        <p class="profile-subtitle">Your account details and spending at a glance.</p>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="auth-success">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="profile-identity">
+        <span class="profile-avatar">{{ user.initials }}</span>
+        <div class="profile-identity-text">
+            <h2 class="profile-identity-name">{{ user.name }}</h2>
+            <p class="profile-identity-email">{{ user.email }}</p>
+            <p class="profile-identity-meta">Member since {{ user.member_since }}</p>
+        </div>
+        <a href="#" class="btn-ghost">Edit profile</a>
+    </div>
+
+    <div class="profile-stats">
+        <div class="profile-stat">
+            <div class="profile-stat-label">Total spent</div>
+            <div class="profile-stat-value">₹{{ "%.2f"|format(total_spent) }}</div>
+            <div class="profile-stat-meta">all time</div>
+        </div>
+        <div class="profile-stat">
+            <div class="profile-stat-label">Transactions</div>
+            <div class="profile-stat-value">{{ transaction_count }}</div>
+            <div class="profile-stat-meta">recorded</div>
+        </div>
+        <div class="profile-stat">
+            <div class="profile-stat-label">Top category</div>
+            <div class="profile-stat-value">{{ top_category }}</div>
+            <div class="profile-stat-meta">most spent</div>
+        </div>
+    </div>
+
+    <div class="profile-grid">
+
+        <div class="profile-card">
+            <div class="profile-card-head">
+                <h2 class="profile-card-title">Transaction history</h2>
+                <span class="profile-card-note">{{ transaction_count }} entries</span>
+            </div>
+
+            <div class="tx-table-wrap">
+                <table class="tx-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Category</th>
+                            <th scope="col" class="tx-amount">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for t in transactions %}
+                        <tr>
+                            <td class="tx-date">{{ t.date_label }}</td>
+                            <td class="tx-desc">{{ t.description }}</td>
+                            <td>
+                                <span class="cat-badge cat-{{ t.category|lower|replace(' ', '-') }}">{{ t.category }}</span>
+                            </td>
+                            <td class="tx-amount">₹{{ "%.2f"|format(t.amount) }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <div class="profile-card-head">
+                <h2 class="profile-card-title">Spending by category</h2>
+            </div>
+
+            <div class="cat-list">
+                {% for c in categories %}
+                <div class="cat-row">
+                    <div class="cat-row-head">
+                        <span class="cat-badge cat-{{ c.slug }}">{{ c.name }}</span>
+                        <span class="cat-row-amount">₹{{ "%.2f"|format(c.amount) }}<span class="cat-row-share">{{ c.share }}%</span></span>
+                    </div>
+                    <div class="cat-bar-track" role="img"
+                         aria-label="{{ c.name }}: {{ c.share }}% of total spending">
+                        <div class="cat-bar-fill cat-{{ c.slug }} bar-w-{{ c.bar_step }}"></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
